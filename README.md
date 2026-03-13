@@ -7,7 +7,7 @@ This project follows the **CRISP-DM framework** and evaluates multiple machine l
 
 ---
 
-# 🚀 Project Overview
+## 🚀 Project Overview
 
 Customer churn prediction is a critical application of **machine learning in business analytics**.  
 In telecom companies, **retaining existing customers is significantly cheaper than acquiring new ones**.
@@ -15,92 +15,89 @@ In telecom companies, **retaining existing customers is significantly cheaper th
 This project builds a **predictive model that identifies customers with a high probability of leaving the service**, enabling targeted retention strategies.
 
 ### **Key Objective**
+
 Maximize **Recall** to ensure the model detects as many churners as possible.
 
 ---
 
-# 📂 Dataset
+## 📂 Dataset
 
 The project uses the **Telco Customer Churn dataset (Kaggle)** containing information about approximately **7,000 telecom customers**.
 
 ### **Features include**
 
-**Demographics**
+#### **Demographics**
 - Gender
 - Senior citizen
 - Partner / dependents
 
-**Services**
+#### **Services**
 - Phone service
 - Internet service (DSL / Fiber)
 - Streaming services
 - Tech support
 
-**Account Information**
+#### **Account Information**
 - Tenure
 - Contract type
 - Payment method
 - Monthly charges
 
-**Target Variable**
+### **Target Variable**
 Churn = Yes / No
 
 ---
 
-# 📊 Target Distribution
+## 📊 Target Distribution
 
 The dataset is **imbalanced**, with churners representing roughly **26% of customers**.
 
-![Churn Distribution](images/churn_distribution.png)
+![Churn Distribution](churn_distribution.png)
 
 This imbalance was handled during training using **class weighting and `scale_pos_weight`**.
 
 ---
 
-# 🔍 Exploratory Data Analysis (EDA)
+## 🔍 Exploratory Data Analysis (EDA)
 
 Exploratory analysis helped identify **key patterns influencing customer churn**.
 
----
-
-## **Contract Type vs Churn**
+### **Contract Type vs Churn**
 
 Customers with **month-to-month contracts churn significantly more** than customers with long-term contracts.
 
-![Contract Churn](images/contract_churn.png)
+![Contract Churn](contract_churn.png)
 
 ---
 
-## **Tenure vs Churn**
+### **Tenure vs Churn**
 
 New customers (**0–12 months**) are significantly more likely to churn.
 
-![Tenure Churn](images/tenure_churn.png)
+![Tenure Churn](tenure_churn.png)
 
 ---
 
-## **Internet Service vs Churn**
+### **Internet Service vs Churn**
 
 Customers using **fiber optic internet services** show higher churn rates compared to DSL users.
 
-![Internet Churn](images/internet_churn.png)
-
 ---
 
-# 📈 Feature Relationships
+## 📈 Feature Relationships
 
 Correlation analysis was performed to identify relationships between **numerical features**.
 
-![Correlation Heatmap](images/correlation_heatmap.png)
+![Correlation Heatmap](correlation_heatmap.png)
 
-**Key observation**
+### **Key Observations**
 
 - **Tenure and total charges show strong correlation**
 - Longer customer relationships usually lead to higher spending.
 
 ---
 
-# 🛠 Data Preparation
+## 🛠 Data Preparation
 
 Data preprocessing steps included:
 
@@ -123,7 +120,7 @@ New features were created to better capture **customer lifecycle behavior**:
 
 ---
 
-# 🤖 Machine Learning Models
+## 🤖 Machine Learning Models
 
 Several machine learning models were trained and evaluated:
 
@@ -134,32 +131,58 @@ Several machine learning models were trained and evaluated:
 | **CatBoost** | Gradient boosting model optimized for categorical features |
 | **Voting Ensemble** | Combination of multiple models |
 
-### **Training procedure**
+### **Training Procedure**
 
 - **5-Fold Stratified Cross Validation**
 - **RandomizedSearchCV for hyperparameter tuning**
 
 ---
 
-# 📉 ROC Curve
+## 📉 ROC Curve
 
 The **ROC curve** illustrates the tradeoff between the **true positive rate and false positive rate**.
 
-![ROC Curve](images/roc_curve.png)
+![ROC Curve](roc_curve.png)
 
 The best model achieved **ROC-AUC ≈ 0.85**.
 
 ---
 
-# 📊 Precision-Recall Curve
+## 📊 Precision–Recall Curve
 
 Precision–Recall analysis is particularly important for **imbalanced datasets**.
 
-![PR Curve](images/pr_curve.png)
+![PR Curve](pr_curve.png)
 
 ---
 
-# 🏆 Model Performance
+## 📊 Model Comparison
+
+The table below compares the performance of the evaluated models.
+
+![Model Comparison](model_comparison.png)
+
+---
+
+## 📉 Model Stability Across Cross-Validation
+
+To ensure the model generalizes well, we evaluated **training and validation recall across 5-fold cross-validation**.
+
+The small gap between training and validation recall (~4.75%) indicates **minimal overfitting and stable performance**.
+
+![XGBoost Stability](xgboost_stability.png)
+
+---
+
+## 🧩 Best Model Detailed Performance
+
+The following figure shows the **classification report and confusion matrix of the best performing model (XGBoost)**.
+
+![XGBoost Confusion Matrix](xgboost_confusion_matrix.png)
+
+---
+
+## 🏆 Model Performance
 
 **Best performing model: XGBoost**
 
@@ -170,17 +193,17 @@ Precision–Recall analysis is particularly important for **imbalanced datasets*
 | **Precision** | ~0.51 |
 | **ROC-AUC** | ~0.85 |
 
-The model successfully identifies **more than 84% of churners**, which makes it highly useful for **business intervention strategies**.
+The model successfully identifies **more than 84% of churners**, making it highly valuable for **customer retention strategies**.
 
 ---
 
-# 📊 Feature Importance
+## 📊 Feature Importance
 
 Feature importance analysis highlights the **main factors driving customer churn**.
 
-![Feature Importance](images/feature_importance.png)
+![Feature Importance](feature_importance.png)
 
-### **Top predictors**
+### **Top Predictors**
 
 1. **Contract type**
 2. **Tenure months**
@@ -191,7 +214,7 @@ These insights align strongly with findings from **exploratory analysis**.
 
 ---
 
-# 💡 Business Recommendations
+## 💡 Business Recommendations
 
 Based on the results, telecom companies can reduce churn by implementing the following strategies:
 
@@ -209,7 +232,7 @@ Encourage customers experiencing technical issues to use **support services**.
 
 ---
 
-# 🧰 Technologies Used
+## 🧰 Technologies Used
 
 - **Python**
 - **Pandas**
@@ -223,7 +246,7 @@ Encourage customers experiencing technical issues to use **support services**.
 
 ---
 
-# 🚀 Future Improvements
+## 🚀 Future Improvements
 
 Potential improvements include:
 
@@ -234,10 +257,10 @@ Potential improvements include:
 
 ---
 
-# 👤 Author
+## 👤 Author
 
 **Amar Mnaa**  
 *M.Sc. Data Science Student – Ben-Gurion University*
 
-**GitHub**  
+🔗 **GitHub**  
 https://github.com/AmarMnaa
