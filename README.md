@@ -81,6 +81,7 @@ New customers (**0–12 months**) are significantly more likely to churn.
 ### **Internet Service vs Churn**
 
 Customers using **fiber optic internet services** show higher churn rates compared to DSL users.
+![Tenure Churn](internet_churn.png)
 
 ---
 
